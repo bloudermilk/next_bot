@@ -1,5 +1,5 @@
 (function() {
-  var Twitter, client, subdomain;
+  var Twitter, client, subdomain, user_id;
 
   Twitter = require("ntwitter");
 
@@ -12,8 +12,16 @@
 
   subdomain = process.env.SUBDOMAIN;
 
+  user_id = "11132462";
+
+  /*
+  client.get "/users/lookup.json", screen_name: "BobSage47873711", (err, data) ->
+    throw err if err
+    console.log data
+  */
+
   client.stream("statuses/filter", {
-    follow: "11132462"
+    follow: user_id
   }, function(stream) {
     stream.on("data", function(data) {
       var params;
@@ -22,7 +30,15 @@
         console.log("Ignored reply");
         return;
       }
-      if (!data["text"].match(/subdomain/)) {
+      if (data["retweeted_status"]) {
+        console.log("Ignored retweet");
+        return;
+      }
+      if (data["user"]["id_str"] !== user_id) {
+        console.log("Ignored non-@37signals tweet");
+        return;
+      }
+      if (!data["text"].match(/subdomain/i)) {
         console.log("Ignored non-match");
         return;
       }
