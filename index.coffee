@@ -20,7 +20,7 @@ client.stream "statuses/filter", follow: "11132462", (stream) ->
       return
 
     # Only reply to tweets that contain "subdomain"
-    unless data["text"].match(/subdomain/)
+    unless data["text"].match(/subdomain/i)
       console.log "Ignored non-match"
       return
 
