@@ -1,0 +1,16 @@
+{
+  "name": "NextBot",
+  "description": "A Twitter bot that responds to Basecamp Next giveaways",
+  "author": "Brendan Loudermilk (@bloudermilk)",
+  "homepage": "https://github.com/bloudermilk/next_bot",
+  "version": "0.0.1",
+  "dependencies": {
+    "ntwitter": "~> 0.2.10"
+  },
+  "devDependencies": {
+    "coffee-script": "> 1"
+  },
+  "engine": {
+    "node": ">= 0.6.0 < 0.7.0"
+  }
+}
