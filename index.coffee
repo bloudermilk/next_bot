@@ -6,6 +6,8 @@ client = new Twitter
   access_token_key:     process.env.ACCESS_TOKEN_KEY
   access_token_secret:  process.env.ACCESS_TOKEN_SECRET
 
+subdomain = process.env.SUBDOMAIN
+
 # Subscribe to all tweets from @37signals
 client.stream "statuses/filter", follow: "11132462", (stream) ->
   # Called every time a tweet comes in
@@ -25,7 +27,7 @@ client.stream "statuses/filter", follow: "11132462", (stream) ->
     console.log "Responding..."
 
     params =
-      status: "@BobSage47873711 foo bar baz bar foo bar"
+      status: "@37signals We'd love to try Next! Our subdomain is #{subdomain}"
       in_reply_to_status_id: data["id_str"]
 
     # Post a tweet via the REST API
