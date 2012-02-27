@@ -1,7 +1,9 @@
 # NextBot
 
 This was a quick hack to attempt to get a beta invite to Basecamp Next. The code
-should be fairly self-explanitory. It's a Twitter bot...
+should be fairly self-explanitory, but basically it's a Twitter bot that waits for
+@37signals to tweet about Basecamp Next invites, then responds with your Basecamp
+subdomain. I got my invite from [this tweet](https://twitter.com/#!/37signals/status/173948874828943361).
 
 ## Dependencies
 
